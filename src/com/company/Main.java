@@ -7,14 +7,14 @@ public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-//        System.out.println("Enter count of digits");
-//        int count = getIntChecking();
-//        System.out.printf("Enter %d digits\n", count);
-//        int[] arrayInt = new int[count];
-//        for (int i = 0; i < count; i++) {
-//            arrayInt[i] = getIntChecking();
-//        }
-        int[] arrayInt = {5, 6, -4, 1, 11, -9, 1, 0, 1, 5};
+        System.out.println("Enter count of digits");
+        int count = getIntChecking();
+        System.out.printf("Enter %d digits\n", count);
+        int[] arrayInt = new int[count];
+        for (int i = 0; i < count; i++) {
+            arrayInt[i] = getIntChecking();
+        }
+//        int[] arrayInt = {5, 6, -4, 1, 11, -9, 1, 0, 1, 5};
         System.out.printf("Minimum digit: %d\n", getMinimumFromArray(arrayInt));
         System.out.printf("Maximum digit: %d\n", getMaximumFromArray(arrayInt));
         System.out.printf("Count of repeats number 5: %d\n", countOfNumber(arrayInt, 5));
