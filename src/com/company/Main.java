@@ -43,7 +43,6 @@ public class Main {
         }
         return count;
     }
-
     private static int getMinimumFromArray(int[] array){
         int a = Integer.MAX_VALUE;
         for (int anArray : array) {
