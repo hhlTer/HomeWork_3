@@ -1,20 +1,29 @@
 package com.company;
 
-import javax.sound.midi.Soundbank;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 	// write your code here
-        System.out.println("Enter count of digits");
-        int count = getIntChecking();
-        System.out.printf("Enter %d digits\n", count);
-        int[] arrayInt = new int[count];
-        for (int i = 0; i < count; i++) {
-            arrayInt[i] = getIntChecking();
-        }
-//        int[] arrayInt = {5, 6, -4, 1, 11, -9, 1, 0, 1, 5};
+        boolean creatArray;
+        int[] arrayInt = new int[0];
+        do {
+            System.out.println("Enter numbers, using space for separation");
+            creatArray = true;
+            String[] numbers = new Scanner(System.in).nextLine().split(" ");
+            arrayInt = new int[numbers.length];
+            try {
+                for (int i = 0; i < arrayInt.length; i++) {
+                    arrayInt[i] = Integer.parseInt(numbers[i]);
+                }
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                System.out.println("Wrong format or double space typing");
+                creatArray = false;
+            }
+        } while (!creatArray);
+
         System.out.printf("Minimum digit: %d\n", getMinimumFromArray(arrayInt));
         System.out.printf("Maximum digit: %d\n", getMaximumFromArray(arrayInt));
         System.out.printf("Count of repeats number 5: %d\n", countOfNumber(arrayInt, 5));
@@ -33,19 +42,6 @@ public class Main {
             if (anArray == d) count++;
         }
         return count;
-    }
-
-    private static int getIntChecking(){
-        System.out.println(":>");
-        int a;
-        Scanner scanner = new Scanner(System.in);
-        try {
-            a = Integer.parseInt(scanner.nextLine());
-        } catch (Exception e) {
-            System.out.println("Wrong format");
-            a = getIntChecking();
-        }
-        return a;
     }
 
     private static int getMinimumFromArray(int[] array){
